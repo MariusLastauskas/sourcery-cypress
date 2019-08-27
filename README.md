@@ -25,3 +25,7 @@
 5. Run the ***npm run cypress:open*** command
 6. In the open Cypress window click on _login.js_ on the left
 7. Watch as Cypress does the testing for you :)
+
+
+
+#### NOTICE BOLDED POINT 3.3
