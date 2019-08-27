@@ -6,11 +6,13 @@ const dishesPage = new DishesPage();
 
 describe('Lunch app. Dishes order.', function() {
 
+    beforeEach(function() {
+        cy.login(true);
+    })
+
     it('Should not be able to place order for past days', function() {
-        cy.login();
-        
         const date = new Date();
-        if (date.getDay() != 1) {
+        if (date.getDay() != 1 || date.getDay() != 7) {
             const dayName = common.getDay(date.getDay() - 1);
             dishesPage.visitDay(dayName);
 
@@ -21,8 +23,6 @@ describe('Lunch app. Dishes order.', function() {
     })
 
     it('Should be able to place order for future days', function() {
-        cy.login();
-
         const date = new Date();
         if (date.getDay() < 5) {
             const dayName = common.getDay(date.getDay() + 1);
@@ -31,6 +31,24 @@ describe('Lunch app. Dishes order.', function() {
             dishesPage.getFirstDish().click();
             dishesPage.getOrderButton().should('not.have.attr', 'disabled', 'disabled');
             dishesPage.getOrderedTooltipsIcons().first().contains('clear');
-        }
+        }        
+    })
+
+    it('Create a new user', function() {
+        const date = new Date();
+        const newUserName = 'Vardas';
+        const email = 'pastas@gmail.com';
+
+        if (date.getDay() < 5) {
+            const dayName = common.getDay(date.getDay() + 1);
+            dishesPage.visitDay(dayName);
+            dishesPage.getAddButton().click();
+            dishesPage.getCreateNewUserButton().click();
+            dishesPage.getNameFieldInCreateUserForm().type(newUserName);
+            dishesPage.getEmailFieldInCreateUserForm().type(email);
+            dishesPage.getSubmitNewUserCreationButton().click();
+            dishesPage.getSearchUserField().type(newUserName);
+            dishesPage.getSearchResults().contains(newUserName);
+        }   
     })
 })
