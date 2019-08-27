@@ -1,13 +1,9 @@
-const USER_ROLES_MAP = {
-    "User": "",
-    "Team Lead": "role=leads",
-    "Manager": "role=managers",
-    "Accountant": "role=accountants",
-    "Admin": "role=admins"
-}
+const credentials = require("../helpers/credentials")
 
-Cypress.Commands.add('loginAs', (role) => {
-    window.localStorage.setItem('USER_INFO', '{"id":1,"firstName":"Demo","lastName":"User"}')
-    window.localStorage.setItem('ACCESS_TOKEN', `userId=1&${USER_ROLES_MAP[role]}`)
+Cypress.Commands.add('login', (asAdmin) => {
+    if (asAdmin) {
+        window.localStorage.setItem('loggedUser', `{"email":"${credentials.userEmail}","admin":true,"displayName":"${credentials.userName}","id":${credentials.userId},"jwt":"${credentials.jwt}","__typename":"LoggedUser"}`);        
+    } else {
+        window.localStorage.setItem('loggedUser', `{"email":"${credentials.userEmail}","admin":false,"displayName":"${credentials.userName}","id":${credentials.userId},"jwt":"${credentials.jwt}","__typename":"LoggedUser"}`);        
+    }
 })
-
