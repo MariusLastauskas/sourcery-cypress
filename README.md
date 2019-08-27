@@ -4,7 +4,7 @@
 ### 1. Clone via Sourcetree
 
 1. Click [Clone/New] button
-2. Copy paste "https://github.com/nikolaj-tolkaciov/sourcery-cypress.git" into [Source Path / URL] input
+2. Copy paste "https://github.com/MariusLastauskas/sourcery-cypress.git" into [Source Path / URL] input
 3. Input your desired path to store the repository on your local machine into [Destination Path] input 
 4. Click the [Clone] button
 
@@ -18,6 +18,8 @@
 
 1. Navigate to your local ***sourcery_cypress*** repository via File Explorer
 2. Enter the _helpers_ folder and open _credentials.js_
+3. ***Login to your testing account and copy data from local storage loggedUser to _credentials.js_ in format:***
+    ***_module.exports = {'userEmail':'', 'userName':'', 'userId':, 'jwt':''}_***
 3. Enter the credentials used to login to the Sourcery For Testers application and save the file
 4. In cmd navigate to your local ***sourcery_cypress*** repository directory (you should already be there if you've just completed _part 2_)
 5. Run the ***npm run cypress:open*** command
