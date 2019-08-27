@@ -24,7 +24,7 @@ describe('Lunch app. Dishes order.', function() {
         cy.login();
 
         const date = new Date();
-        if (date.getDay() != 5) {
+        if (date.getDay() < 5) {
             const dayName = common.getDay(date.getDay() + 1);
             dishesPage.visitDay(dayName);
 
