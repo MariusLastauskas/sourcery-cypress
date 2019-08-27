@@ -18,7 +18,7 @@
 
 1. Navigate to your local ***sourcery_cypress*** repository via File Explorer
 2. Enter the _helpers_ folder and open _credentials.js_
-3. ***Login to your testing account and copy data from local storage loggedUser to _credentials.js_ in format:***
+3. ***Login to your testing account as admin and copy data from local storage loggedUser to _credentials.js_ in format:***
     ***_module.exports = {'userEmail':'', 'userName':'', 'userId':, 'jwt':''}_***
 3. Enter the credentials used to login to the Sourcery For Testers application and save the file
 4. In cmd navigate to your local ***sourcery_cypress*** repository directory (you should already be there if you've just completed _part 2_)
