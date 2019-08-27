@@ -37,6 +37,7 @@ describe('Lunch app. Dishes order.', function() {
     it('Create a new user', function() {
         const date = new Date();
         const newUserName = 'Vardas';
+        const email = 'pastas@gmail.com';
 
         if (date.getDay() < 5) {
             const dayName = common.getDay(date.getDay() + 1);
@@ -44,7 +45,7 @@ describe('Lunch app. Dishes order.', function() {
             dishesPage.getAddButton().click();
             dishesPage.getCreateNewUserButton().click();
             dishesPage.getNameFieldInCreateUserForm().type(newUserName);
-            dishesPage.getEmailFieldInCreateUserForm().type('pastas@gmail.com');
+            dishesPage.getEmailFieldInCreateUserForm().type(email);
             dishesPage.getSubmitNewUserCreationButton().click();
             dishesPage.getSearchUserField().type(newUserName);
             dishesPage.getSearchResults().contains(newUserName);
